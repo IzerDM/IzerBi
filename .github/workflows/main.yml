@@ -11,7 +11,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Unzip folder
+      - name: Unzip the ZIP file
         run: unzip military-planner-exe.zip -d extracted-folder
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Commit unzipped files
+        run: |
+          git add extracted-folder
+          git commit -m "Unzipped military-planner-exe.zip"
+          git push
