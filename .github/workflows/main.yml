@@ -24,5 +24,10 @@ jobs:
       - name: Commit unzipped files
         run: |
           git add extracted-folder
-          git commit -m "Unzipped military-planner-exe.zip"
-          git push
+          git commit -m "Unzipped military-planner-exe.zip" || echo "Nothing to commit"
+
+      - name: Push unzipped files back to repo
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
