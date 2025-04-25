@@ -15,7 +15,7 @@ Electron .exe with custom icon and splash
 
 Setup
 
-git clone https://github.com/yourusername/yourrepo.git
+git clone https://github.com/IzerDM/IzerBi
 cd yourrepo
 npm install
 npm start   # run locally
