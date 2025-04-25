@@ -24,11 +24,11 @@ jobs:
       - name: Package Application
         run: npm run package
 
-      - name: Check Output Directory
+      - name: Debug Output Directory
         run: dir out\make\squirrel.windows\x64
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: MilitaryPlanner-Setup
-          path: out/make/squirrel.windows/x64/*.exe
+          path: out/make/**/*.exe
