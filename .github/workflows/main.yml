@@ -1,0 +1,17 @@
+name: Unzip Military Planner
+
+on:
+  push:
+    paths:
+      - 'military-planner-exe.zip'
+  workflow_dispatch:
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Unzip folder
+        run: unzip military-planner-exe.zip -d extracted-folder
