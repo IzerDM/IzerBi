@@ -1,0 +1,30 @@
+name: Build Windows EXE
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Package Application
+        run: npm run package
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: MilitaryPlanner-Setup
+          path: out/make/squirrel.windows/x64/*.exe
