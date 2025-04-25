@@ -8,11 +8,12 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js 16
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 16
